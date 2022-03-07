@@ -41,7 +41,8 @@ def process_log(logger, process_name):
     def decorator(func):
         def run(*args):
             logger.info("Start Process: %s" % process_name)
-            func(*args)
+            result = func(*args)
             logger.info("Finish Process: %s" % process_name) 
+            return result
         return run
     return decorator
